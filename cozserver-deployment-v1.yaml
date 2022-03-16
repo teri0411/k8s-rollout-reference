@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cozserver
+  namespace: default
+  labels:
+    app: cozserver
+spec:
+  selector:
+    matchLabels:
+      app: cozserver
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: cozserver
+    spec:
+      containers:
+      - name:  nodejs
+        image:  sebcontents/cozserver:1.0
